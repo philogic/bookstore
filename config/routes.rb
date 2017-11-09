@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :authors
   resources :publishers
-  get 'about/index'
+  get 'about' => 'about#index'
+  root 'books#index'
 end

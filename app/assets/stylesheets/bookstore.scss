@@ -9,9 +9,36 @@ body {
   line-height: 1.5em;
 }
 
-header {
+header, footer {
   background: #333;
   color: #fff;
+}
+
+header {
   height: 80px;
   margin-bottom: 20px;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  height: 60px;
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+#books-index {
+  img {
+    width: 100%;
+    padding: 3px;
+    border: 1px #ccc solid;
+  }
+  h3 {
+    height: 50px;
+  }
+  .btn {
+    display: block;
+    margin-top: 20px;
+  }
 }

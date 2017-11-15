@@ -1,8 +1,15 @@
-.well
-  %h3 Location Info
-  %ul
-    %li My Bookstore
-    %li 234 Krakow Street
-    %li Warsaw
-    %li Phone: (123) 456 789
-    %li Email: support@mybookstore.com
+- if params[:controller] == 'about'
+  .well
+    %h3 Location Info
+    %ul
+      %li My Bookstore
+      %li 234 Krakow Street
+      %li Warsaw
+      %li Phone: (123) 456 789
+      %li Email: support@mybookstore.com
+
+- if params[:controller] == 'books' && params[:action] == 'index' || params[:action] == 'show'
+  .list-group
+    %a.list-group-item{:href => "#"} Ruby On Rails
+    %a.list-group-item{:href => "#"} PHP
+    %a.list-group-item{:href => "#"} HTML5

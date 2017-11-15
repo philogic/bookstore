@@ -3,7 +3,9 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title Bookstore
+    %title
+      = @page_title ? @page_title : 'Welcome'
+      | My Bookstore
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -18,8 +20,10 @@
             %span.icon-bar
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active= link_to 'Home', root_path
-            %li= link_to 'About', about_path
+            %li{:class => "#{params[:controller] == 'books' ? 'active' : ''}"}
+              =link_to 'Home', root_path
+            %li{:class => "#{params[:controller] == 'about' ? 'active' : ''}"}
+              =link_to 'About', about_path
           %ul.nav.navbar-nav.navbar-right
             %li.dropdown
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -30,4 +34,18 @@
                 %li= link_to 'Category', new_category_path
                 %li= link_to 'Author', new_author_path
                 %li= link_to 'Publisher', new_publisher_path
-    = yield
+    %header
+      .container
+        %h1
+          My Bookstore
+          %small= @page_title ? @page_title : 'Welcome'
+    %section
+      .container
+        .row
+          .col-md-8
+            = yield
+          .col-md-4
+            =render 'shared/sidebar'
+    %footer
+      .container
+        Copyright by Jakub Oblizajek 2017 &copy;

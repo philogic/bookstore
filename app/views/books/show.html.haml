@@ -1,2 +1,40 @@
-%h1 Books#show
-%p Find me in app/views/books/show.html.haml
+#books-show
+  %h2 Ruby On Rails Power
+  .books-show-left
+    = image_tag('ruby_on_rails_power.jpg')
+  .books-show-right
+    %h3 Book Info:
+    %ul
+      %li
+        %strong Category:
+        Ruby On Rails
+      %li
+        %strong Author:
+        Aneesha Bakharia
+      %li
+        %strong Publisher
+        Course technology PTR
+      %li
+        %strong Year:
+        2007
+      %li
+        %strong ISBN:
+        1234567890
+      %li
+        %strong Format:
+        Paperback
+      %li
+        %strong Pages:
+        678
+
+    = link_to 'Buy on Amazon', 'https://www.amazon.com/Ruby-Rails-Power-Comprehensive-Guide/dp/1598632167',
+    class: 'btn btn-success', target: '_blank'
+
+  .clearfix
+  %h4 Excerpt
+  %p
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+

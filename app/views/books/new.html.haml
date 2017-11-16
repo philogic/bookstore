@@ -1,2 +1,45 @@
-%h1 Books#new
-%p Find me in app/views/books/new.html.haml
+%h2 Add a New Book
+
+= form_for @book do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :isbn
+    = f.text_field :isbn, class: 'form-control'
+
+  .form-group
+    = f.label :category
+    = f.select :category_id, Category.all.collect { |x| [x.name, x.id]}, {include_blank: 'Select One'}, class: 'form-control'
+
+  .form-group
+    = f.label :category
+    = f.select :author_id, Author.all.collect { |x| [x.name, x.id]}, {include_blank: 'Select One'}, class: 'form-control'
+
+  .form-group
+    = f.label :publisher
+    = f.select :publisher_id, Publisher.all.collect { |x| [x.name, x.id]}, {include_blank: 'Select One'}, class: 'form-control'
+
+  .form-group
+    = f.label :format
+    = f.text_field :format, class: 'form-control'
+
+  .form-group
+    = f.label :excerpt
+    = f.text_area :excerpt, class: 'form-control'
+
+  .form-group
+    = f.label :pages
+    = f.number_field :pages, class: 'form-control'
+
+  .form-group
+    = f.label :price
+    = f.text_field :price, class: 'form-control'
+
+  .form-group
+    = f.label :buy
+    = f.text_field :buy, class: 'form-control'
+
+  = f.submit 'Submit', class: 'btn btn-primary'
+  = link_to 'Back', books_path, class: 'btn btn-default'

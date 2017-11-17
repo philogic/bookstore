@@ -43,6 +43,10 @@
       .container
         .row
           .col-md-8
+            - if flash[:notice]
+              .alert.alert-success= flash[:notice]
+            - if flash[:alert]
+              .alert.alert-danger= flash[:alert]
             = yield
           .col-md-4
             =render 'shared/sidebar'

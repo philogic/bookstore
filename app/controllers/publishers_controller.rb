@@ -8,6 +8,13 @@ class PublishersController < ApplicationController
   end
 
   def create
+    @publisher = Publisher.new(publisher_params)
+    if @publisher.save
+      flash[:notice] = 'Publisher Successfully Created!'
+      redirect_to publishers_path
+    else
+      render 'new'
+    end
   end
 
   def edit

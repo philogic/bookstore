@@ -1,6 +1,7 @@
 %h2 Add New Author
 
 = form_for @author do |f|
+  = render 'shared/errors', object: @author
   .form-group
     = f.label :first_name
     = f.text_field :first_name, class: 'form-control'

@@ -1,2 +1,16 @@
-%h1 Authors#index
-%p Find me in app/views/authors/index.html.haml
+%h2 Authors
+
+%table.table.table-striped
+  %tr
+    %th Author Name
+    %th Actions
+  - @authors.each do |author|
+    %tr
+      %td
+        = author.first_name
+        = author.last_name
+      %td
+        = link_to 'Edit', edit_author_path(author.id)
+        | #{link_to 'Delete', author_path(author), method: :delete, data: { confirm: 'Are you sure?' }}
+
+

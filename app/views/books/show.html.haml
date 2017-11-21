@@ -34,7 +34,7 @@
   %h4 Excerpt
   = simple_format(@book.excerpt)
 
-  %h3 Admin Functions
+  %h3 Available Actions
   = link_to 'Edit', edit_book_path(@book.id)
   | #{link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}}
 

@@ -1,2 +1,12 @@
-%h1 Publishers#index
-%p Find me in app/views/publishers/index.html.haml
+%h1 Publishers
+%table.table.table-striped
+  %tr
+    %th Publisher Name
+    %th Actions
+  - @publishers.each do |publisher|
+    %tr
+      %td= publisher.name
+      %td
+        = link_to 'Edit', edit_publisher_path(publisher.id)
+        | #{link_to 'Delete', publisher_path(publisher), method: :delete, data: { confirm: 'Are you sure?' }}
+

@@ -2,7 +2,7 @@
   = render 'shared/errors', object: @book
   .form-group
     = f.label :title
-    = f.text_field :title, class: 'form-control'
+    = f.text_field :title, class: 'form-control', autofocus: true
 
   .form-group
     = f.label :isbn, 'ISBN'

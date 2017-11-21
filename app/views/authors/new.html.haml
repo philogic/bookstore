@@ -1,14 +1,2 @@
 %h2 Add New Author
-
-= form_for @author do |f|
-  = render 'shared/errors', object: @author
-  .form-group
-    = f.label :first_name
-    = f.text_field :first_name, class: 'form-control'
-
-  .form-group
-    = f.label :last_name
-    = f.text_field :last_name, class: 'form-control'
-
-  = f.submit 'Submit', class: 'btn btn-primary'
-  = link_to 'Back', authors_path, class: 'btn btn-default'
+= render 'shared/forms/author'

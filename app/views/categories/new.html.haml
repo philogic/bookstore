@@ -1,10 +1,2 @@
 %h2 Add New Category
-
-= form_for @category do |f|
-  = render 'shared/errors', object: @category
-  .form-group
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
-
-  = f.submit 'Submit', class: 'btn btn-primary'
-  = link_to 'Back', categories_path, class: 'btn btn-default'
+= render 'shared/forms/category'

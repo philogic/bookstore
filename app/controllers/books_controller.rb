@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:edit, :update, :show, :destroy]
   def index
     @books = Book.all
     @categories = Category.all
@@ -23,11 +24,9 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = 'Book Successfully Updated'
       redirect_to books_path
@@ -42,13 +41,16 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
     flash[:alert] = "Book Removed!"
     redirect_to books_path
   end
 
   private
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:title, :category_id, :author_id, :publisher_id, :isbn, :price, :buy, :format, :excerpt, :pages, :year )

@@ -1,40 +1,42 @@
 #books-show
-  %h2 Ruby On Rails Power
+  %h2= @book.title
   .books-show-left
-    = image_tag('ruby_on_rails_power.jpg')
+    = image_tag(@book.cover_path)
   .books-show-right
     %h3 Book Info:
     %ul
       %li
         %strong Category:
-        Ruby On Rails
+        = @book.category.name
       %li
         %strong Author:
-        Aneesha Bakharia
+        = @book.author.first_name
+        = @book.author.last_name
       %li
         %strong Publisher
-        Course technology PTR
+        = @book.publisher.name
       %li
         %strong Year:
-        2007
+        = @book.year
       %li
         %strong ISBN:
-        1234567890
+        = @book.isbn
       %li
         %strong Format:
-        Paperback
+        = @book.format
       %li
         %strong Pages:
-        678
+        = @book.pages
 
-    = link_to 'Buy on Amazon', 'https://www.amazon.com/Ruby-Rails-Power-Comprehensive-Guide/dp/1598632167',
-    class: 'btn btn-success', target: '_blank'
+    = link_to 'Buy for ' + @book.price, @book.buy, class: 'btn btn-success', target: '_blank'
 
   .clearfix
   %h4 Excerpt
-  %p
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+  = simple_format(@book.excerpt)
+
+  %h3 Admin Functions
+  = link_to 'Edit', edit_book_path(@book.id)
+  | #{link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}}
+
+
 
